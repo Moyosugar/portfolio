@@ -1,269 +1,1690 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Moyosore Adaramola's portfolio in project coordination, programme support, operations and digital project delivery.">
+
+  <title>Moyosore Adaramola | Project and Programme Coordination</title>
+
   <style>
+    :root {
+      --green: #173f35;
+      --green-light: #285d4e;
+      --cream: #f7f6f0;
+      --white: #ffffff;
+      --ink: #202923;
+      --muted: #66716a;
+      --line: #e2e6df;
+      --accent: #d5e7a4;
+      --radius: 18px;
+    }
+
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
     body {
-      font-family: 'Outfit', sans-serif;
-      background-color: #0e0e0e;
-      color: #f4f4f4;
-      line-height: 1.6;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.7;
     }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    .section {
+      padding: 90px 0;
+    }
+
+    .eyebrow {
+      color: var(--green-light);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -1.2px;
+      margin-bottom: 18px;
+    }
+
+    .section-intro {
+      max-width: 650px;
+      color: var(--muted);
+      margin-bottom: 36px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--green);
+      color: white;
+      padding: 13px 20px;
+      border-radius: 7px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .button:hover {
+      background: var(--green-light);
+      transform: translateY(-2px);
+    }
+
+    .button-outline {
+      background: transparent;
+      color: var(--green);
+      border: 1px solid var(--green);
+    }
+
+    .button-outline:hover {
+      color: white;
+    }
+
+    /* Navigation */
+
     header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247, 246, 240, 0.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .brand {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--green);
+      letter-spacing: -0.5px;
+    }
+
+    .brand span {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      list-style: none;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--green-light);
+    }
+
+    .menu-button {
+      display: none;
+      border: 1px solid var(--line);
+      background: white;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    /* Hero */
+
+    .hero {
+      padding: 85px 0 80px;
+      background:
+        radial-gradient(circle at 90% 20%, #e6edcf 0, transparent 29%),
+        var(--cream);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      align-items: center;
+      gap: 70px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.7rem, 5.8vw, 5rem);
+      letter-spacing: -3px;
+      max-width: 750px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 span {
+      color: var(--green-light);
+    }
+
+    .hero-copy {
+      max-width: 610px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-note {
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .profile-card {
+      position: relative;
+      max-width: 340px;
+      justify-self: center;
+      width: 100%;
+    }
+
+    .profile-frame {
+      min-height: 360px;
+      background: var(--green);
+      border-radius: 48% 48% 18px 18px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      border: 8px solid white;
+      box-shadow: 0 22px 55px #173f351c;
+    }
+
+    .profile-frame img {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .profile-placeholder {
+      color: white;
       text-align: center;
-      padding: 80px 20px 40px;
-      background: linear-gradient(to right, #41aaff, #02a093);
+      padding: 45px 25px;
     }
-    header h1 {
-      font-size: 4rem;
-      margin-bottom: 10px;
+
+    .profile-placeholder strong {
+      display: block;
+      font-size: 3rem;
+      margin-bottom: 12px;
     }
-    header p {
-      font-size: 1.2rem;
+
+    .profile-placeholder p {
+      font-size: 0.85rem;
+      color: #dce9df;
     }
-    .projects, .resume-section, .github-section, .skills-section {
-      padding: 60px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
+
+    .profile-caption {
+      position: absolute;
+      bottom: 24px;
+      left: -28px;
+      background: white;
+      border: 1px solid var(--line);
+      padding: 14px 18px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px #0000000b;
     }
-    .projects h2, .resume-section h2, .github-section h2, .skills-section h2 {
-      font-size: 2.5rem;
-      margin-bottom: 40px;
-      text-align: center;
+
+    .profile-caption strong {
+      display: block;
+      color: var(--green);
+      font-size: 0.9rem;
     }
+
+    .profile-caption span {
+      font-size: 0.76rem;
+      color: var(--muted);
+    }
+
+    /* Experience highlights */
+
+    .proof-strip {
+      background: var(--green);
+      color: white;
+      padding: 28px 0;
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .proof-item {
+      padding: 5px 18px;
+      border-left: 2px solid #9bbd8a;
+    }
+
+    .proof-item strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    .proof-item span {
+      color: #d4e2d9;
+      font-size: 0.84rem;
+    }
+
+    /* About */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 65px;
+      align-items: start;
+    }
+
+    .about-panel {
+      background: #e9eddf;
+      padding: 32px;
+      border-radius: var(--radius);
+    }
+
+    .about-panel h3 {
+      color: var(--green);
+      margin-bottom: 15px;
+    }
+
+    .about-panel ul {
+      list-style: none;
+    }
+
+    .about-panel li {
+      padding: 10px 0;
+      border-bottom: 1px solid #d6ddce;
+      color: #3c5145;
+    }
+
+    .about-panel li:last-child {
+      border-bottom: 0;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      margin-bottom: 17px;
+    }
+
+    /* Project cards */
+
+    .projects-section {
+      background: #fff;
+    }
+
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
     }
-    .project {
-      background-color: #1c1c1c;
-      border-radius: 12px;
+
+    .project-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
       overflow: hidden;
-      transition: transform 0.3s ease;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      background: white;
+      transition: 0.25s ease;
     }
-    .project:hover {
+
+    .project-card:hover {
       transform: translateY(-5px);
+      box-shadow: 0 18px 40px #173f3510;
     }
-    .project img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
+
+    .project-cover {
+      min-height: 240px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 25px;
     }
-    .project-content {
-      padding: 20px;
+
+    .cover-government {
+      background: linear-gradient(135deg, #dce9dc, #f5f0dc);
     }
-    .project-content h3 {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
+
+    .cover-training {
+      background: linear-gradient(135deg, #e4e9d8, #f8e9d8);
     }
-    .project-content a {
-      color: #2079be;
-      text-decoration: none;
-      font-weight: 600;
+
+    .cover-registration {
+      background: linear-gradient(135deg, #dce8ef, #e9e6f4);
     }
-    .resume-section, .github-section, .skills-section {
-      text-align: center;
+
+    .cover-digital {
+      background: linear-gradient(135deg, #e8e2d4, #d9e8df);
     }
-    .resume-section a, .github-section a {
-      display: inline-block;
-      background-color: #2079be;
+
+    /* Government website illustration */
+
+    .art-window {
+      width: min(340px, 100%);
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 15px 35px #173f3520;
+      overflow: hidden;
+      transform: rotate(-2deg);
+    }
+
+    .art-toolbar {
+      height: 22px;
+      background: #edf0e9;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 0 10px;
+    }
+
+    .art-toolbar i {
+      display: block;
+      width: 6px;
+      height: 6px;
+      background: #a8b4a8;
+      border-radius: 50%;
+    }
+
+    .government-art {
+      padding: 15px;
+    }
+
+    .government-banner {
+      background: var(--green);
       color: white;
-      padding: 12px 24px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: background 0.3s ease;
+      padding: 16px 12px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      margin-bottom: 12px;
     }
-    .resume-section a:hover, .github-section a:hover {
-      background-color: #41dcff;
+
+    .government-banner small {
+      display: block;
+      font-size: 0.58rem;
+      font-weight: 400;
+      color: #d7e6d9;
+      margin-top: 5px;
     }
-    .skills-grid {
+
+    .art-lines {
+      height: 7px;
+      background: #e7ebe4;
+      border-radius: 4px;
+      margin: 8px 0;
+    }
+
+    .art-lines.short {
+      width: 55%;
+    }
+
+    .art-columns {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 20px;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .art-block {
+      height: 48px;
+      background: #e4ecdf;
+      border-radius: 5px;
+    }
+
+    /* Training illustration */
+
+    .training-art {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 25px;
+      transform: rotate(2deg);
+    }
+
+    .people-art {
+      display: flex;
+      align-items: flex-end;
+      gap: 7px;
+      height: 105px;
+    }
+
+    .person {
+      width: 30px;
+      height: 57px;
+      border-radius: 18px 18px 6px 6px;
+      background: #d5a27e;
+      position: relative;
+    }
+
+    .person::before {
+      content: "";
+      width: 23px;
+      height: 23px;
+      border-radius: 50%;
+      background: #80543c;
+      position: absolute;
+      top: -20px;
+      left: 3px;
+    }
+
+    .person:nth-child(2) {
+      height: 77px;
+      background: #73968a;
+    }
+
+    .person:nth-child(2)::before {
+      background: #382c26;
+    }
+
+    .person:nth-child(3) {
+      height: 65px;
+      background: #c98c62;
+    }
+
+    .person:nth-child(3)::before {
+      background: #49332b;
+    }
+
+    .training-note {
+      background: white;
+      border-radius: 8px;
+      padding: 13px;
+      box-shadow: 0 8px 20px #0000000d;
+      max-width: 145px;
+    }
+
+    .training-note strong {
+      display: block;
+      color: var(--green);
+      font-size: 0.78rem;
+      margin-bottom: 6px;
+    }
+
+    .training-note span {
+      font-size: 0.65rem;
+      color: var(--muted);
+    }
+
+    /* Registration illustration */
+
+    .registration-art {
+      width: min(310px, 100%);
+      background: white;
+      padding: 22px;
+      border-radius: 10px;
+      box-shadow: 0 15px 35px #173f3520;
+      transform: rotate(-2deg);
+    }
+
+    .form-title {
+      color: var(--green);
+      font-size: 0.9rem;
+      font-weight: 800;
+      margin-bottom: 13px;
+    }
+
+    .form-field {
+      border: 1px solid #dfe5df;
+      border-radius: 5px;
+      padding: 7px;
+      margin: 8px 0;
+      color: #a0aaa3;
+      font-size: 0.64rem;
+    }
+
+    .form-button {
+      background: var(--green);
+      color: white;
+      display: inline-block;
+      padding: 7px 14px;
+      border-radius: 4px;
+      font-size: 0.65rem;
+      margin-top: 5px;
+    }
+
+    /* Digital project illustration */
+
+    .digital-art {
+      display: grid;
+      grid-template-columns: 85px 1fr;
+      width: min(340px, 100%);
+      min-height: 170px;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px #173f3520;
+      transform: rotate(2deg);
+    }
+
+    .board-sidebar {
+      background: var(--green);
+      padding: 14px 9px;
+    }
+
+    .board-sidebar span {
+      display: block;
+      height: 5px;
+      border-radius: 3px;
+      background: #9bb8a8;
+      margin: 11px 0;
+    }
+
+    .board-main {
+      padding: 15px 12px;
+    }
+
+    .board-heading {
+      font-size: 0.75rem;
+      font-weight: 800;
+      margin-bottom: 13px;
+    }
+
+    .board-columns {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+    }
+
+    .board-column {
+      background: #f1f3ee;
+      padding: 6px;
+      border-radius: 4px;
+    }
+
+    .board-task {
+      height: 27px;
+      border-radius: 3px;
+      background: #cddfc9;
+      margin-top: 7px;
+    }
+
+    .board-column:nth-child(2) .board-task {
+      background: #e8d8b9;
+    }
+
+    .board-column:nth-child(3) .board-task {
+      background: #d7d4eb;
+    }
+
+    .project-content {
+      padding: 25px;
+    }
+
+    .project-category {
+      color: var(--green-light);
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.3px;
+      margin-bottom: 9px;
+    }
+
+    .project-content h3 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+    }
+
+    .project-content p {
+      color: var(--muted);
+      font-size: 0.94rem;
+      margin-bottom: 18px;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 20px;
+    }
+
+    .project-tags span {
+      background: #f0f3eb;
+      color: #40594a;
+      border-radius: 5px;
+      padding: 5px 9px;
+      font-size: 0.73rem;
+    }
+
+    .case-details {
+      border-top: 1px solid var(--line);
+      padding-top: 15px;
+      margin-top: 15px;
+    }
+
+    .case-details summary {
+      color: var(--green);
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .case-details p {
+      margin: 12px 0 0;
+      font-size: 0.88rem;
+    }
+
+    /* Approach */
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
       margin-top: 30px;
     }
-    .skill-box {
-      background-color: #1f1f1f;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease;
+
+    .approach-card {
+      padding: 25px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 12px;
     }
-    .skill-box:hover {
-      transform: scale(1.05);
+
+    .approach-number {
+      display: inline-flex;
+      width: 38px;
+      height: 38px;
+      align-items: center;
+      justify-content: center;
+      background: #e7eddb;
+      color: var(--green);
+      border-radius: 50%;
+      font-weight: 800;
+      margin-bottom: 18px;
     }
-    .skill-box h4 {
-      font-size: 1.2rem;
-      color: #2079be;
+
+    .approach-card h3 {
+      font-size: 1.05rem;
       margin-bottom: 10px;
     }
-    .skill-box ul {
-      list-style: none;
-      padding: 0;
-    }
-    .skill-box ul li {
-      margin: 5px 0;
-      font-size: 0.95rem;
-    }
-    footer {
-      text-align: center;
-      padding: 30px;
-      background-color: #1a1a1a;
+
+    .approach-card p {
+      color: var(--muted);
       font-size: 0.9rem;
-      color: #aaa;
+    }
+
+    /* Competencies */
+
+    .competencies {
+      background: #e9eddf;
+    }
+
+    .competency-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 25px;
+    }
+
+    .competency-list span {
+      background: white;
+      border: 1px solid #d8e0d2;
+      padding: 11px 15px;
+      border-radius: 7px;
+      font-size: 0.9rem;
+      color: #344c3d;
+    }
+
+    /* Resume */
+
+    .resume-panel {
+      background: var(--green);
+      color: white;
+      padding: 42px;
+      border-radius: var(--radius);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .resume-panel h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      margin-bottom: 12px;
+    }
+
+    .resume-panel p {
+      color: #d9e5dd;
+      max-width: 620px;
+    }
+
+    .resume-panel .button {
+      background: var(--accent);
+      color: var(--green);
+      flex-shrink: 0;
+    }
+
+    /* Contact */
+
+    .contact {
+      background: white;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    .contact-copy {
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .contact-links {
+      display: grid;
+      gap: 13px;
+    }
+
+    .contact-links a {
+      overflow-wrap: anywhere;
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .contact-note {
+      padding: 25px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--cream);
+    }
+
+    .contact-note h3 {
+      margin-bottom: 10px;
+    }
+
+    .contact-note p {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    footer {
+      padding: 25px 0;
+      background: var(--green);
+      color: #d9e5dd;
+      font-size: 0.82rem;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    /* Responsive layout */
+
+    @media (max-width: 800px) {
+      .hero-grid,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 38px;
+      }
+
+      .hero {
+        padding-top: 60px;
+      }
+
+      .hero h1 {
+        letter-spacing: -1.8px;
+      }
+
+      .profile-card {
+        max-width: 290px;
+      }
+
+      .profile-frame,
+      .profile-frame img {
+        min-height: 300px;
+        height: 300px;
+      }
+
+      .project-grid,
+      .approach-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .resume-panel {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 30px;
+      }
+
+      .proof-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .proof-item {
+        padding-left: 14px;
+      }
+
+      .section {
+        padding: 65px 0;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .nav {
+        min-height: 68px;
+      }
+
+      .menu-button {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: var(--cream);
+        border-bottom: 1px solid var(--line);
+        padding: 20px 5%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 17px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-actions .button {
+        width: 100%;
+      }
+
+      .profile-caption {
+        left: -8px;
+      }
+
+      .project-cover {
+        min-height: 210px;
+      }
+
+      .project-content {
+        padding: 20px;
+      }
+
+      .about-panel {
+        padding: 24px;
+      }
+
+      .footer-row {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        transition: none !important;
+      }
     }
   </style>
 </head>
+
 <body>
-   
+
   <header>
-    <p> Hi, my name is,</p>
-    <h1>Adaramola Moyosore</h1>
-    <p>Creative Frontend Developer | Building Clean & Captivating Web Experiences</p>
-    <p>I’m a software engineer who specializes in frontend development. I design and build features for websites and web apps that are fast, easy to use, and simple to maintain.</p>
-  
-    <section class="resume-section">
-        <a href="Adaramola_Moyosore_CV.pdf" target="_blank">Resume</a>
-      </section>
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#home">
+        MOYOSORE ADARAMOLA
+        <span>Project and Programme Coordination</span>
+      </a>
 
+      <button class="menu-button" id="menuButton"
+        aria-label="Open navigation menu" aria-expanded="false">
+        Menu ☰
+      </button>
 
-   </header>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <section class="projects">
-    <h2>My Web Projects</h2>
-    <div class="project-grid">
-      <div class="project">
-        <img src="imperial.png" alt="Project Screenshot">
-        <div class="project-content">
-          <h3>Imperial Photography</h3>
-          <a href="https://imperialphotography.co.uk/" target="_blank">Visit Website</a>
-        </div>
-      </div>
-      <div class="project">
-        <img src="tutorme.png" alt="Project Screenshot">
-        <div class="project-content">
-          <h3>Tutormi Online</h3>
-          <a href="https://www.tutormionline.com/" target="_blank">Visit Website</a>
-        </div>
-      </div>
-      <div class="project">
-        <img src="emerge.png" alt="Project Screenshot">
-        <div class="project-content">
-          <h3>Emerge Conference</h3>
-          <a href="https://emerge.nextswitch.org/" target="_blank">Visit Website</a>
-        </div>
-      </div>
-    </div>
-    <!--  -->
-    <div class="project-grid" style="margin-top: 30px;">
-        <div class="project">
-          <img src="learnfrontend.png" alt="Project Screenshot">
-          <div class="project-content">
-            <h3>Frontend Development Training</h3>
-            <a href="https://chloetech-solution.onrender.com/" target="_blank">Visit Website</a>
-          </div>
-        </div>
-        <div class="project">
-          <img src="emergedashboard.png" alt="Project Screenshot">
-          <div class="project-content">
-            <h3>Emerge Dashboard</h3>
-            <a href="https://emerge.nextswitch.org/dashboard.php" target="_blank">Visit Website</a>
-          </div>
-        </div>
-        <div class="project">
-          <img src="laurelchecks.png" alt="Project Screenshot">
-          <div class="project-content">
-            <h3>Laurel Checks</h3>
-            <a href="https://laurel-checks.com.ng/" target="_blank">Visit Website</a>
-          </div>
-        </div>
-      </div>
-      <!--  -->
-      <div class="project-grid" style="margin-top: 30px;">
-        <div class="project">
-          <img src="oysgb.png" alt="Project Screenshot">
-          <div class="project-content">
-            <h3>Oyo State Gaming Board</h3>
-            <a href="https://oysgb.com.ng/" target="_blank">Visit Website</a>
-          </div>
-        </div>
-        <div class="project">
-          <img src="zennal.png" alt="Project Screenshot">
-          <div class="project-content">
-            <h3>Zennal-Quick Loan</h3>
-            <a href="https://app.zennalfinance.com/quick_loan.php" target="_blank">Visit Website</a>
-          </div>
-        </div>
-        <div class="project">
-          <img src="oyaca.png" alt="Project Screenshot">
-          <div class="project-content">
-            <h3>Oyo State Anti-Corruption Agency</h3>
-            <a href="https://oyaca.ng/" target="_blank">Visit Website</a>
-          </div>
-        </div>
-      </div>
-  </section>
+  <main>
 
-  <section class="skills-section" >
-    <h1 style="font-size: 2.5rem;">My Skills</h1>
-    <div class="skills-grid">
-      <div class="skill-box">
-        <h4>Languages & framework / library</h4>
-        <ul>
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>Bootstrap</li>
-          <li>Tailwind CSS</li>
-          <li>WordPress</li>
-          <li>JavaScript</li>
-          <li>React</li>
-        </ul>
-      </div>
-      <div class="skill-box">
-        <h4>Tools</h4>
-        <ul>
-          <li>Git</li>
-          <li>Npm</li>
-          <li>Developer Tools</li>
-          <li>Chrome DevTools</li>
-        </ul>
-      </div>
-      <div class="skill-box">
-        <h4>Platforms</h4>
-        <ul>
-          <li>GitHub</li>
-          <li>Visual Studio Code</li>
-          <li>Figma</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+    <!-- Home section -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
 
-  <section class="resume-section">
-    <h2>Get in touch!</h2>
-    <p>Thanks for checking in! </p>
-      <p> I’m currently open to new opportunities and excited to work with great people and companies. I’m quick to adapt and always ready to learn any new technology the job requires.
-        
-        If you think I’d be a good fit for your team, or if you’d like to know more about what I do, feel free to reach out. </p>
-        <p>You can contact me at <b>adaramolamoyosoreb96@gmail.com</b> or through any platform you’re comfortable with.</p>
-        
-        
-  </section>
+        <div>
+          <p class="eyebrow">
+            Project coordination · Programme support · Operations
+          </p>
+
+          <h1>
+            Bringing structure to projects and
+            <span>people focused programmes.</span>
+          </h1>
+
+          <p class="hero-copy">
+            I support project delivery through coordination, documentation,
+            participant engagement, progress tracking and collaboration.
+            My experience spans development sector programmes and digital projects.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button" href="#projects">Explore my projects ↗</a>
+            <a class="button button-outline" href="#contact">Let's connect</a>
+          </div>
+
+          <p class="hero-note">
+            Based in Ibadan, Nigeria · Open to relevant project and programme opportunities
+          </p>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-frame">
+            <img
+              src="profile.jpg"
+              alt="Portrait of Moyosore Adaramola"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+            >
+
+            <div class="profile-placeholder" style="display:none;">
+              <strong>MA</strong>
+              <!-- <p>Add your professional photograph as profile.jpg</p> -->
+            </div>
+          </div>
+
+          <div class="profile-caption">
+            <strong>Moyosore Adaramola</strong>
+            <span>Coordination · Communication · Delivery</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Experience highlights -->
+    <section class="proof-strip">
+      <div class="container proof-grid">
+
+        <div class="proof-item">
+          <strong>Programme Coordination</strong>
+          <span>Participant information, training activities and referrals</span>
+        </div>
+
+        <div class="proof-item">
+          <strong>Digital Project Support</strong>
+          <span>Website delivery, content review and task coordination</span>
+        </div>
+
+        <div class="proof-item">
+          <strong>Stakeholder Collaboration</strong>
+          <span>Working with teams, participants and project stakeholders</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- About section -->
+    <section class="section" id="about">
+      <div class="container about-grid">
+
+        <div>
+          <p class="eyebrow">A little about me</p>
+          <h2>Organised work. Clear communication. Practical follow through.</h2>
+        </div>
+
+        <div class="about-copy">
+          <p>
+            I am a Computer Science Education graduate with experience supporting
+            development sector activities, training coordination, digital projects
+            and online learning.
+          </p>
+
+          <p>
+            My former experience with the Nigerian German Centre for Migration
+            and Development exposed me to participant guidance, training information
+            sessions, registration, profiling and referral processes.
+          </p>
+
+          <p>
+            My earlier digital work also strengthened my ability to organise tasks,
+            review information and work with different people to move deliverables
+            forward.
+          </p>
+
+          <p>
+            Today my work sits in Project Coordinator, Programme Assistant,
+            Project Support and Operations roles where I can contribute to
+            organised implementation and reliable delivery.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Projects section -->
+    <section class="section projects-section" id="projects">
+      <div class="container">
+
+        <p class="eyebrow">Selected work</p>
+        <h2>Projects and practical experience</h2>
+
+        <p class="section-intro">
+          Explore selected programme and digital project experiences.
+          The visual covers are illustrations created for this portfolio.
+          They are not photographs or screenshots of the original projects.
+        </p>
+
+        <div class="project-grid">
+
+          <!-- Oyo State website project -->
+          <article class="project-card">
+
+            <div class="project-cover cover-government"
+              role="img" aria-label="Illustration of a government website">
+
+              <div class="art-window">
+                <img src="oyaca.png">
+                <!-- <div class="art-toolbar">
+                  <i></i><i></i><i></i>
+                </div> -->
+
+                <!-- <div class="government-art">
+                  <div class="government-banner">
+                    PUBLIC INFORMATION PORTAL
+                    <small>Services · Information · Resources</small>
+                  </div>
+
+                  <div class="art-lines"></div>
+                  <div class="art-lines short"></div>
+
+                  <div class="art-columns">
+                    <div class="art-block"></div>
+                    <div class="art-block"></div>
+                  </div>
+                </div> -->
+
+              </div>
+            </div>
+
+            <div class="project-content">
+              <div class="project-category">Digital Project · Website</div>
+
+              <h3>Oyo State Website Project</h3>
+
+              <p>
+                Supported work on a government website involving multiple agencies and departments. Checked documents, prepared content and handled photos and other materials.
+              </p>
+
+              <div class="project-tags">
+                <span>Content coordination</span>
+                <span>Document review</span>
+                <span>Stakeholder collaboration</span>
+              </div>
+
+              <details class="case-details">
+                <summary>View case study</summary>
+
+                <p>
+                  <strong>My role:</strong>
+                  Project support and content coordination
+                </p>
+
+                <p>
+                  <strong>Sector:</strong>
+                  Government
+                </p>
+
+                <p>
+                  <strong>Stakeholders:</strong>
+                  Multiple agencies and departments
+                </p>
+
+                <p>
+                  <strong>Background:</strong>
+                  The project involved collecting, checking and preparing information and materials from many agencies and departments for a government website.
+                </p>
+
+                <p>
+                  <strong>My contribution:</strong><br>
+                  <label>- Coordinated project tasks</label><br>
+                  <label>- Checked documents before upload</label><br>
+                  <label>- Handled photos and documents</label><br>
+                  <label>- Reviewed uploaded materials</label><br>
+                  <!-- I helped coordinate project tasks. I checked documents before upload, handled photos and documents, and reviewed uploaded materials. -->
+                </p>
+
+                <p>
+                  <strong>Coordination challenge:</strong>
+                  Working with materials from different stakeholders while
+                  maintaining accuracy and keeping the work moving.
+                </p>
+
+                <p>
+                  <strong>Team size:</strong>
+                  5 to 10 people
+                </p>
+
+                <p>
+                  <strong>Delivery evidence:</strong>
+                  Checked documents and photos from multiple agencies before upload. Reviewed the published content for accuracy.
+                </p>
+              </details>
+            </div>
+          </article>
+
+          <!-- Migration and training programme -->
+          <article class="project-card">
+
+            <div class="project-cover cover-training"
+              role="img" aria-label="Illustration of a training programme">
+
+              <div class="training-art">
+                <div class="people-art">
+                  <img src="hub.jpeg">
+                  <!-- <div class="person"></div>
+                  <div class="person"></div>
+                  <div class="person"></div> -->
+                </div>
+
+                <div class="training-note">
+                  <strong>TRAINING PROGRAMME</strong>
+                  <span>
+                    Information sessions<br>
+                    Participant guidance<br>
+                    Referral process
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-content">
+              <div class="project-category">
+                Development Sector · Programme Support
+              </div>
+
+              <h3>Migration Advice and Training Coordination</h3>
+
+              <p>
+                Supported activities connected to migration advice, vocational
+                training and ICT training, helping prospective participants
+                understand programme requirements and next steps.
+              </p>
+
+              <div class="project-tags">
+                <span>Participant coordination</span>
+                <span>Information sessions</span>
+                <span>Referrals</span>
+              </div>
+
+              <details class="case-details">
+                <summary>View case study</summary>
+
+                 <p>
+                  <strong>My role:</strong>
+                  Project Coordinator and Advisor
+                </p>
+
+                <p>
+                  <strong>Sector:</strong>
+                  NGO- Nigerian German Centre for Migration and Development (GIZ)
+                </p>
+
+                <p>
+                  <strong>Period:</strong>
+                  Sep 2025 to Aug 2026
+                </p>
+
+                <p>
+                  <strong>Team size:</strong>
+                  8 to 10 people
+                </p>
+
+                <p>
+                  <strong>Background:</strong>
+                  Prospective participants needed clear information about
+                  training opportunities and the steps required before referral.
+                </p>
+
+                <p>
+                  <strong>My contribution:</strong><br>
+                  <label>- Provided migration related guidance</label><br>
+                  <label>- Supported training information sessions</label><br>
+                  <label>- Handled participant registration, profiling and referral processes</label><br>
+                 
+                </p>
+
+                <p>
+                  <strong>Challenge:</strong>
+                  ICT and vocational information sessions ran on separate days. I kept registration, profiling and referrals organised across both.
+                </p>
+
+                <p>
+                  <strong>Delivery evidence:</strong>
+                  Maintained 150+ participant profiles. Supported 10 monthly information sessions and contributed to 95% on time delivery. Training batches were planned for 50 beneficiaries..
+                </p>
+
+                
+              </details>
+            </div>
+          </article>
+
+          <!-- Registration workflow -->
+          <article class="project-card">
+
+            <div class="project-cover cover-registration"
+              role="img" aria-label="Illustration of a registration form">
+
+              <div class="registration-art">
+                <div class="form-title">PARTICIPANT REGISTRATION</div>
+                <div class="form-field">Full name</div>
+                <div class="form-field">Contact information</div>
+                <div class="form-field">Programme or training interest</div>
+                <span class="form-button">Submit details</span>
+              </div>
+            </div>
+
+            <div class="project-content">
+              <div class="project-category">
+                Digital Project · Information Management
+              </div>
+
+              <h3>Online Registration and Information Workflow</h3>
+
+              <p>
+                Contributed to a website based registration and information
+                workflow designed to collect user details and display submitted
+                information.
+              </p>
+
+              <div class="project-tags">
+                <span>Registration workflow</span>
+                <span>Data organisation</span>
+                <span>User experience</span>
+              </div>
+
+              <details class="case-details">
+                <summary>View case study</summary>
+
+                <p>
+                  <strong>My role:</strong>
+                  Project Coordinator and Frontend Developer
+                </p>
+
+                <p>
+                  <strong>Sector:</strong>
+                  Tech- Next Switch
+                </p>
+
+                <p>
+                  <strong>Period:</strong>
+                  Oct 2024 to Apr 2025
+                </p>
+
+                <p>
+                  <strong>Team size:</strong>
+                  2 to 7 people
+                </p>
+
+                <p>
+                  <strong>Background:</strong>
+                  Users needed a way to register online. Their details had to be captured and displayed.
+                </p>
+
+                <p>
+                  <strong>My contribution:</strong><br>
+                  <label>- Supported website development for registration and information display</label><br>
+                  <label>- Led task tracking for the IT training</label><br>
+                 
+                </p>
+
+                <p>
+                  <strong>Challenge:</strong>
+                  User details had to be captured and displayed correctly. I organised requirements and checked functionality so the system matched the intended user process.
+                </p>
+
+                <p>
+                  <strong>Delivery evidence:</strong>
+                  Built a registration system for a cohort of 100 participants and the eMerge conference. Led task tracking for the IT training.
+                </p>
+                
+              </details>
+            </div>
+          </article>
+
+          <!-- Website and team projects -->
+          <article class="project-card">
+
+            <div class="project-cover cover-digital"
+              role="img" aria-label="Illustration of a digital project task board">
+                   <img src="kanban-board.png">
+              <div class="digital-art">
+                <div class="board-sidebar">
+                  
+                  <!-- <span></span><span></span><span></span><span></span> -->
+                </div>
+
+                <div class="board-main">
+                  <div class="board-heading">PROJECT TASK BOARD</div>
+
+                  <div class="board-columns">
+                    <div class="board-column">
+                      <small>To do</small>
+                      <div class="board-task"></div>
+                      <div class="board-task"></div>
+                    </div>
+
+                    <div class="board-column">
+                      <small>In progress</small>
+                      <div class="board-task"></div>
+                    </div>
+
+                    <div class="board-column">
+                      <small>Done</small>
+                      <div class="board-task"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-content">
+              <div class="project-category">
+                Digital Delivery · Team Collaboration
+              </div>
+
+              <h3>Website and Team Project Delivery</h3>
+
+              <p>
+                Built on experience in website projects, online student training,
+                content creation and teamwork. These projects developed practical
+                skills in organising activities, communicating with collaborators
+                and following work through to completion.
+              </p>
+
+              <div class="project-tags">
+                <span>Task coordination</span>
+                <span>Team collaboration</span>
+                <span>Online training</span>
+              </div>
+
+              <details class="case-details">
+                <summary>View case study</summary>
+
+                <p>
+                  <strong>My role:</strong>
+                  Frontend Designer and Client Project Lead
+                </p>
+
+                <p>
+                  <strong>Sector:</strong>
+                  Tech- CloudWare Technologies
+                </p>
+
+                <p>
+                  <strong>Period:</strong>
+                  Feb 2018 to Jun 2023
+                </p>
+
+                <p>
+                  <strong>Team size:</strong>
+                  5 to 10 people
+                </p>
+
+                <p>
+                  <strong>Background:</strong>
+                  Digital and learning activities required coordination between
+                  people, content and delivery tasks.
+                </p>
+
+                <p>
+                  <strong>My contribution:</strong><br>
+                  <label>- Worked on website development for clients</label><br>
+                  <label>- Supported online student training</label><br>
+                  <label>- Monitored project budgets and worked with team members</label><br>
+                </p>
+
+                <p>
+                  <strong>Challenge:</strong>
+                  Running 3 to 5 client projects at once meant keeping tasks, content and deadlines organised for each one.
+                </p>
+              </details>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- How I work -->
+    <section class="section" id="approach">
+      <div class="container">
+
+        <p class="eyebrow">How I work</p>
+        <h2>Turning activities into organised delivery</h2>
+
+        <p class="section-intro">
+          My approach is practical. I clarify the task, organise information,
+          communicate with the people involved and follow up on outstanding work.
+        </p>
+
+        <div class="approach-grid">
+
+          <article class="approach-card">
+            <span class="approach-number">01</span>
+            <h3>Plan and organise</h3>
+            <p>
+              Clarify requirements, organise documents and activities, and
+              identify the people or information needed to move work forward.
+            </p>
+          </article>
+
+          <article class="approach-card">
+            <span class="approach-number">02</span>
+            <h3>Coordinate and communicate</h3>
+            <p>
+              Support communication between stakeholders, participants and
+              team members so that requirements and next steps are clear.
+            </p>
+          </article>
+
+          <article class="approach-card">
+            <span class="approach-number">03</span>
+            <h3>Track and follow through</h3>
+            <p>
+              Review work, check documentation, follow up on pending tasks and
+              help keep activities aligned with the intended outcome.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Core competencies -->
+    <section class="section competencies" id="competencies">
+      <div class="container">
+
+        <p class="eyebrow">Core competencies</p>
+        <h2>Skills I bring to a team</h2>
+
+        <p class="section-intro">
+          A combination of coordination, communication, digital skills and
+          information management developed through my work experience.
+        </p>
+
+        <div class="competency-list">
+          <span>Project Coordination</span>
+          <span>Programme Support</span>
+          <span>Stakeholder Communication</span>
+          <span>Participant Coordination</span>
+          <span>Documentation</span>
+          <span>Registration and Profiling</span>
+          <span>Task Tracking</span>
+          <span>Agile, Scrum, Kanban and Waterfall</span>
+          <span>Google Workspace, MS Office, Figma, Canva and SQL</span>
+          <span>Team Collaboration</span>
+          <span>Training Support</span>
+          <span>Jira, Trello, Notion, Monday.com and Slack</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Resume -->
+    <section class="section" id="resume">
+      <div class="container">
+
+        <div class="resume-panel">
+          <div>
+            <p class="eyebrow" style="color:#d5e7a4;">Resume</p>
+
+            <h2>Would you like to know more about my experience?</h2>
+
+            <p>
+              View or download my CV for my education, work experience,
+              skills and professional background.
+            </p>
+          </div>
+
+          <a class="button"
+             href="ADARAMOLA_MOYOSORE_CV.pdf"
+             target="_blank"
+             rel="noopener">
+            View my CV ↗
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section contact" id="contact">
+      <div class="container contact-grid">
+
+        <div>
+          <p class="eyebrow">Let's connect</p>
+          <h2>Have a project or opportunity in mind?</h2>
+
+          <p class="contact-copy">
+            I am open to conversations about project coordination, programme
+            support, operations and digital project delivery opportunities.
+          </p>
+
+          <div class="contact-links">
+            <a href="mailto:adaramolamoyosoreb96@gmail.com">
+              adaramolamoyosoreb96@gmail.com
+            </a>
+
+            <a href="https://linkedin.com/in/adaramolamoyosore" target="_blank" rel="noopener">
+              Connect with me on LinkedIn
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-note">
+          <h3>What I can support</h3>
+
+          <p>
+            Project administration, programme activities, participant
+            coordination, documentation, stakeholder communication, digital
+            project tasks and general operations support.
+          </p>
+
+          <br>
+
+          <a class="button" href="mailto:adaramolamoyosoreb96@gmail.com">
+            Send me an email ↗
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
 
   <footer>
-    <p>&copy; 2025 Adaramola Moyosore. All Rights Reserved.</p>
+    <div class="container footer-row">
+      <span>© <span id="year"></span> Moyosore Adaramola</span>
+      <span>Project and Programme Coordination Portfolio</span>
+    </div>
   </footer>
+
+  <script>
+    const menuButton = document.getElementById("menuButton");
+    const navLinks = document.getElementById("navLinks");
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+      menuButton.textContent = isOpen ? "Close ✕" : "Menu ☰";
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.textContent = "Menu ☰";
+      });
+    });
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
 </body>
 </html>
